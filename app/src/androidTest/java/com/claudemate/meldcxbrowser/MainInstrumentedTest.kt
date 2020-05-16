@@ -38,7 +38,7 @@ class MainInstrumentedTest {
             }
         }
 
-    private var activity: MainActivity? = null
+    private lateinit var activity: MainActivity
 
     @Before
     fun setup() {
@@ -47,28 +47,28 @@ class MainInstrumentedTest {
 
     @Test
     fun checkViewsVisible() {
-        assertTrue(activity!!.imgGo.visibility == View.VISIBLE);
-        assertTrue(activity!!.imgCapture.visibility == View.VISIBLE);
-        assertTrue(activity!!.imgHistory.visibility == View.VISIBLE);
-        assertTrue(activity!!.imgHome.visibility == View.VISIBLE);
-        assertTrue(activity!!.editUrl.visibility == View.VISIBLE);
+        assertTrue(activity.imgGo.visibility == View.VISIBLE);
+        assertTrue(activity.imgCapture.visibility == View.VISIBLE);
+        assertTrue(activity.imgHistory.visibility == View.VISIBLE);
+        assertTrue(activity.imgHome.visibility == View.VISIBLE);
+        assertTrue(activity.editUrl.visibility == View.VISIBLE);
     }
 
     @Test
     fun checkPermissionGranted() {
-        assertTrue(activity!!.isStoragePermissionGranted());
+        assertTrue(activity.isStoragePermissionGranted());
     }
 
     @Test
     fun checkWebviewCapture() {
-        assertTrue(activity!!.captureWebview().length > 0)
+        assertTrue(activity.captureWebview().length > 0)
     }
 
     @Test
     fun checkWebviewInvisibility() {
         try {
-            activity!!.placeRecentStoredImage()
-            assertTrue(activity!!.webView.visibility == View.INVISIBLE)
+            activity.placeRecentStoredImage()
+            assertTrue(activity.webView.visibility == View.INVISIBLE)
         } catch (e: NullPointerException) {
             assertNotNull(e)
         }
@@ -76,9 +76,9 @@ class MainInstrumentedTest {
 
     @Test
     fun checkUriParser() {
-        var path = activity!!.sharedPref.getString(MainActivity.SP_PATH, null)
+        var path = activity.sharedPref.getString(MainActivity.SP_PATH, null)
         try {
-            path = activity!!.getPathFromURI(Uri.parse(path))
+            path = activity.getPathFromURI(Uri.parse(path))
             if (path != null) {
                 assertTrue(path.isNotEmpty())
             } else {
@@ -91,17 +91,17 @@ class MainInstrumentedTest {
 
     @Test(expected = NullPointerException::class)
     fun checkNullUriParser() {
-        val path = activity!!.getPathFromURI(Uri.parse(null))
+        val path = activity.getPathFromURI(Uri.parse(null))
         assertNull(path)
     }
 
     @Test
     fun checkWebViewDefaultURL() {
-        assertEquals(activity!!.editUrl.text.toString(), MainActivity.DEFAULT_URL)
+        assertEquals(activity.editUrl.text.toString(), MainActivity.DEFAULT_URL)
     }
 
     @Test
     fun checkIntentDataReceived() {
-        assertEquals(activity!!.editUrl.text.toString(), MainActivity.DEFAULT_URL)
+        assertEquals(activity.editUrl.text.toString(), MainActivity.DEFAULT_URL)
     }
 }
