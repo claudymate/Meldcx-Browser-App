@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="?attr/colorPrimary">
+
+            <LinearLayout android:layout_width="match_parent"
+                          android:layout_height="wrap_content"
+                          android:orientation="horizontal"
+                          android:gravity="center_vertical"
+                          android:paddingEnd="@dimen/view_padding">
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/home"
+                        android:id="@+id/imgHome"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:padding="@dimen/view_margin"/>
+
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:layout_marginEnd="@dimen/view_margin"
+                        android:background="@drawable/search_field_background"
+                        android:padding="@dimen/view_padding">
+                    <EditText
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:inputType="text|textUri"
+                            android:hint="@string/enter_url"
+                            android:id="@+id/editUrl"
+                            android:textCursorDrawable="@null"
+                            android:layout_weight="1"
+                            android:background="@android:color/transparent"
+                            android:paddingStart="@dimen/view_padding"
+                            android:textColorHint="@color/colorTextHint"
+                            android:layout_margin="@dimen/view_padding"
+                            android:textColor="@android:color/white"
+                            android:imeOptions="actionGo"
+                            android:textSize="@dimen/normal_text_size"
+                    />
+                    <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:srcCompat="@drawable/go"
+                            android:id="@+id/imgGo"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:padding="@dimen/view_padding"/>
+                </LinearLayout>
+
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/capture"
+                        android:id="@+id/imgCapture"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:padding="@dimen/view_margin"/>
+                <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/history"
+                        android:id="@+id/imgHistory"
+                        android:foreground="?android:attr/selectableItemBackground"
+                        android:padding="@dimen/view_margin"/>
+
+            </LinearLayout>
+
+        </com.google.android.material.appbar.MaterialToolbar>
+        <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_gravity="center"
+                android:id="@+id/progressBar"
+                android:max="100"
+                android:backgroundTint="@android:color/holo_red_light"/>
+        <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_launcher_background"
+                    android:id="@+id/imgHolder"/>
+            <WebView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" android:id="@+id/webView"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

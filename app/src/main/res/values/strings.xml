@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">MeldCX Browser</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_history">History</string>
+    <string name="action_settings">Settings</string>
+    <string name="enter_url">Enter URL</string>
+    <string name="search">Search</string>
+    <string name="clear_history">Clear</string>
+    <string name="cancel">Cancel</string>
+    <string name="okay">Okay</string>
+    <string name="view">View</string>
+    <string name="confirmation">Confirmation</string>
+    <string name="information">Information</string>
+    <string name="confirmation_clear_history">Do you want to clear browsing history?</string>
+    <string name="information_clear_history">Browsing history is empty!</string>
+    <string name="webpage_captured">Webpage captured successfully!</string>
+</resources>
